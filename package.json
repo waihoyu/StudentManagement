@@ -1,0 +1,22 @@
+{
+  "name": "studentmangement",
+  "version": "1.0.0",
+  "description": "技术栈 node.js + express.js + ejs + mongodb + mongoose + bootstrap + jquery",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waihoyu/StudentManagement.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waihoyu/StudentManagement/issues"
+  },
+  "homepage": "https://github.com/waihoyu/StudentManagement#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
