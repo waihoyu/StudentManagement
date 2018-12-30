@@ -10,13 +10,16 @@
     "type": "git",
     "url": "git+https://github.com/waihoyu/StudentManagement.git"
   },
-  "author": "",
+  "author": "WaiHoYu",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/waihoyu/StudentManagement/issues"
   },
   "homepage": "https://github.com/waihoyu/StudentManagement#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "formidable": "^1.2.1",
+    "mongoose": "^5.4.1"
   }
 }
