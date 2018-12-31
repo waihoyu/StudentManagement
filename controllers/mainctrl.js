@@ -52,9 +52,14 @@ exports.showStudent = function (request, response) {
 }
 
 exports.getAllStudent = function (request, response) {
-    var page = url.parse(request.url,true).query.page || 0
-    Student.find({}).limit(4).skip(4*page).exec(function (err,results) {
-        response.json({"results":results})
+    var page = url.parse(request.url,true).query.page - 1 || 0
+    Student.count({},function (err,count) {
+        Student.find({}).limit(4).skip(4*page).exec(function (err,results) {
+            response.json({
+                "pageAmount":Math.ceil((count/4)),
+                "results":results
+            })
+        })
     })
 }
 

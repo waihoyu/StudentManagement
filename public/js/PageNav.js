@@ -1,17 +1,20 @@
 (function(){
+
    window.PageNav = PageNav;
+
    function PageNav(params){
         this.$box = $("#" + params.boxid);
         this.page = params.page || 1;
         this.pageAmount = params.pageAmount;
         this.flag = false;
- 
+        // this.callback = params.callback
         //取得事件的委托函数；
         this.fn = params.change;
         this.init();
         this.gotoPage(this.page);
         this.bindEvent();
    };
+
    PageNav.prototype.init = function(){
         this.$prevBtn = $("<a href='javascript:;'></a>").addClass("cBtn").html("上一页").appendTo(this.$box);
         this.$btn1 = $("<a href='javascript:;'></a>").addClass("Btn").appendTo(this.$box);
@@ -25,6 +28,7 @@
         this.$btn7 = $("<a href='javascript:;'></a>").addClass("Btn").appendTo(this.$box);
         this.$nextBtn = $("<a href='javascript:;'></a>").addClass("cBtn").html("下一页").appendTo(this.$box);
    };
+
    PageNav.prototype.gotoPage = function(number){
         //修正number，再传递给 this.page；
          if(number >= 1 && number <= this.pageAmount){
@@ -119,14 +123,16 @@
                 this.$nextBtn.show();
              }
         };
+
         //if的意思是等页面请求后在渲染到哦页面在置为this.flag=true；执行事件委托函数；
         if(this.flag){
             this.fn(this.page);
         };
         this.flag = true;
 
-      
+        // this.callback(page.number)
    };
+
    PageNav.prototype.bindEvent = function(){
     var self = this;
         $(".Btn").click(function(){

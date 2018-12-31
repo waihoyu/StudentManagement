@@ -86,6 +86,7 @@
                         </div>
 
                         <div id="pagenavbox"></div>
+
                     </div>
                 </div>
             </div>
@@ -140,16 +141,16 @@
     //请求一次，创建分页条
     $.get("/student?page=1",function(data){
         //分页条
+        console.log(data)
         new PageNav({
             boxid : "pagenavbox",
             page : 1,
-            perPageNum: 5,
+            // perPageNum: 5,
             pageAmount : data.pageAmount,
             change : function(pagenumber){
                 gotopage(pagenumber);
             }
         });
-
         gotopage(1);
     });
 
