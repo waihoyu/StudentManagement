@@ -26,11 +26,11 @@ exports.updateStudent = function (request, response) {
                 response.send("查无此人，请检查网址")
                 return
             }
-
             var theStudent = results[0]
             theStudent.name = fields.name
             theStudent.age = fields.age
             theStudent.sex = fields.sex
+            console.log("test1");
             theStudent.save(function (err) {
                 if (err){
                     response.send("1")

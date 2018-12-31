@@ -17,8 +17,8 @@ studentSchema.statics.addStudent = function (json,callback) {
             callback(-1)
         }
     })
-    var s = new Student(json)
-    s.save()
+    // var s = new Student(json)
+    // s.save()
     // this.insertOne(json, function (err) {
     //     if (err){
     //         console.log("插入失败");

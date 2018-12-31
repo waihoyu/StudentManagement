@@ -23,5 +23,6 @@ app.delete  ('/student/:sid'    , mainctrl.deleteStudent)
 app.get    ('/student'         , mainctrl.getAllStudent)
 
 app.use(express.static("public"))
+
 app.listen(5000)
 

@@ -115,7 +115,7 @@
             </div>
             <div class="col-md-5">
                 <p>
-                    <label><input type="radio"  value="男" name="sex">男</label>
+                    <label><input type="radio"  value="男" name="sex" checked>男</label>
                     <label><input type="radio"  value="女" name="sex">女</label>
                 </p>
             </div>
@@ -147,6 +147,8 @@
             if(data.result == 1){
                 alert("提交成功！");
                 $("input[type=text]").val("");
+                $("#sid_tip").removeClass("alert-success").removeClass("alert-danger").hide()
+                $("input[name='sex']:eq(0)").attr("checked",'checked');
             }else if(data.result == -1){
                 alert("提交失败，学号被占用！");
             }else if(data.result == -2){
@@ -197,30 +199,6 @@
     </div>
 </footer>
 <!-- FOOTER SECTION END-->
-
-<!-- GOOGLE ADD SECTION START -->
-<div id="add-div-main">
-
-    <div class="add-wrapper-db">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                    <div class="add-block">
-
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 text-center">
-                    <div class="add-block" id="ftr-large-add"  >
-                        <center>
-
-                        </center>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
 
 
 </body>
