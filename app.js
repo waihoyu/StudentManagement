@@ -13,12 +13,15 @@ mongoose.connect('mongodb://localhost/smv2', {useNewUrlParser: true}, function (
 
 app.set("view engine", "ejs")
 
-app.get('/', mainctrl.showIndex)
-app.get('/add', mainctrl.showAdd)
-app.post('/add', mainctrl.doAdd)
-app.propfind('/:sid', mainctrl.check)
-app.post('/:sid', mainctrl.update)
-app.delete('/:sid', mainctrl.delete)
+app.get('/'                     , mainctrl.showIndex)
+app.get('/add'                  , mainctrl.showAdd)
+app.get('/student/:sid'         , mainctrl.showUpdate)
+app.post    ('/student'         , mainctrl.doAddStudent)
+app.propfind('/student/:sid'    , mainctrl.checkStudent)
+app.post    ('/student/:sid'    , mainctrl.updateStudent)
+app.delete  ('/student/:sid'    , mainctrl.deleteStudent)
+app.get    ('/student'         , mainctrl.getAllStudent)
 
 app.use(express.static("public"))
 app.listen(5000)
+

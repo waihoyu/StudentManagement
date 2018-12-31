@@ -13,8 +13,8 @@
     <link href="/css/style.css" rel="stylesheet" />
     <script type="text/javascript" src="/js/jquery.min.js"></script>
 </head>
-<body>
 
+<body>
 <!-- HEADER END-->
 <div class="navbar navbar-inverse set-radius-zero">
     <div class="container">
@@ -29,9 +29,9 @@
             </a>
 
         </div>
-
     </div>
 </div>
+
 <!-- LOGO HEADER END-->
 <section class="menu-section">
     <div class="container">
@@ -44,6 +44,9 @@
                         </li>
                         <li>
                             <a href="/add">增加学生</a>
+                        </li>
+                        <li>
+                            <a href="/student/:sid">修改学生</a>
                         </li>
                     </ul>
                 </div>
@@ -89,7 +92,16 @@
         </div>
     </div>
 </div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
 
+            </div>
+
+        </div>
+    </div>
+</footer>
 <script type="text/javascript" src="js/PageNav.js"></script>
 <script type="text/javascript">
 
@@ -131,6 +143,7 @@
         new PageNav({
             boxid : "pagenavbox",
             page : 1,
+            perPageNum: 5,
             pageAmount : data.pageAmount,
             change : function(pagenumber){
                 gotopage(pagenumber);

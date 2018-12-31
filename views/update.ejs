@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>增加学生 - 小小学生管理系统</title>
+    <title>修改学生 - 小小学生管理系统</title>
     <link href="/css/bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME ICONS  -->
     <link href="/css/font-awesome.css" rel="stylesheet" />
@@ -47,10 +47,10 @@
                             <a href="/">所有学生</a>
                         </li>
                         <li>
-                            <a class="menu-top-active" href="/add">增加学生</a>
+                            <a  href="/add">增加学生</a>
                         </li>
                         <li>
-                            <a href="/student/:sid">修改学生</a>
+                            <a class="menu-top-active" href="/student/:sid">修改学生</a>
                         </li>
                     </ul>
                 </div>
@@ -65,7 +65,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="page-head-line">增加学生</h1>
+                <h1 class="page-head-line">修改学生</h1>
             </div>
         </div>
         <div class="row">
@@ -76,7 +76,7 @@
             </div>
             <div class="col-md-5">
                 <p>
-                    <input type="text" class="form-control" name="sid">
+                    <input type="text" class="form-control" name="sid" value="<%=info.sid%>" disabled>
                 </p>
                 <div class="alert alert-danger" role="alert" id="sid_tip" style="display:none;">学号已经存在，请检查！</div>
             </div>
@@ -91,7 +91,7 @@
             </div>
             <div class="col-md-5">
                 <p>
-                    <input type="text" class="form-control" name="name">
+                    <input type="text" class="form-control" name="name" value="<%=info.name%>">
                 </p>
             </div>
         </div>
@@ -103,7 +103,7 @@
             </div>
             <div class="col-md-5">
                 <p>
-                    <input type="text" class="form-control" name="age">
+                    <input type="text" class="form-control" name="age" value="<%=info.age%>">
                 </p>
             </div>
         </div>
@@ -115,8 +115,8 @@
             </div>
             <div class="col-md-5">
                 <p>
-                    <label><input type="radio"  value="男" name="sex">男</label>
-                    <label><input type="radio"  value="女" name="sex">女</label>
+                    <label><input type="radio"  value="男" name="sex" <% if (info.sex == '男'){  %>checked<%}%>>男</label>
+                    <label><input type="radio"  value="女" name="sex" <% if (info.sex == '女'){  %>checked<%}%>>女</label>
                 </p>
             </div>
         </div>
@@ -138,8 +138,8 @@
 
     //点击提交按钮的时候做的事情
     $("#btn").click(function(){
-        $.post("/student",{
-            sid :   parseInt($("input[name=sid]").val()),
+        var sid = parseInt($("input[name=sid]").val())
+        $.post("/student/"+sid,{
             name :  $("input[name=name]").val(),
             age :   parseInt($("input[name=age]").val()),
             sex :   $("input[name=sex]:checked").val()
